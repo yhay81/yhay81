@@ -39,28 +39,54 @@
   <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
   <img alt="React" src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-  <img alt="AWS" src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonaws&logoColor=FF9900" />
+  <img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
+  <img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" />
+  <img alt="AWS" src="https://skillicons.dev/icons?i=aws" height="28" />
+  <img alt="Azure" src="https://skillicons.dev/icons?i=azure" height="28" />
 </p>
 
 ## Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=yhay81&show_icons=true&hide_border=true&include_all_commits=true&show=reviews,discussions_answered,prs_merged" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=yhay81&layout=compact&hide_border=true" height="165" />
+  <img
+    alt="Profile Details"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=yhay81&theme=github_dark"
+  />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com?user=yhay81&hide_border=true" />
+  <img
+    alt="GitHub Stats"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=yhay81&theme=github_dark"
+    height="165"
+  />
+  <img
+    alt="Top Languages"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=yhay81&theme=github_dark"
+    height="165"
+  />
+</p>
+
+<p align="center">
+  <img
+    alt="Productive Time"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=yhay81&theme=github_dark&utcOffset=9"
+    height="165"
+  />
+  <img
+    alt="Most Commit Language"
+    src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=yhay81&theme=github_dark"
+    height="165"
+  />
 </p>
 
 <p align="center">
   <a href="https://github.com/ashutosh00710/github-readme-activity-graph">
-    <img alt="GitHub Activity Graph" src="https://github-readme-activity-graph.vercel.app/graph?username=yhay81&theme=github-compact&hide_border=true&area=true&bg_color=00000000" />
+    <img
+      alt="GitHub Activity Graph"
+      src="https://github-readme-activity-graph.vercel.app/graph?username=yhay81&theme=github-compact&hide_border=true&area=true&bg_color=00000000"
+    />
   </a>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=yhay81&column=4&no-frame=true" />
 </p>
 
 ## WakaTime (auto-updated)
