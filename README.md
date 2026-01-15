@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  I love building useful things with code, and I enjoy wearing many hats.
+  I love building useful things with code, and I enjoy long rides on my road bike.
 </p>
 
 <p align="center">
