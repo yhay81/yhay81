@@ -98,19 +98,19 @@
 
 ```text
 💬 Programming Languages: 
-Markdown                 16 hrs 56 mins      ███████████████░░░░░░░░░░   59.39 % 
-MDX                      3 hrs 40 mins       ███░░░░░░░░░░░░░░░░░░░░░░   12.90 % 
-HTML                     2 hrs 2 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.15 % 
-TypeScript               1 hr 52 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.57 % 
-JSON                     1 hr 6 mins         █░░░░░░░░░░░░░░░░░░░░░░░░   03.86 % 
+Markdown                 16 hrs 23 mins      ███████████████░░░░░░░░░░   59.95 % 
+MDX                      3 hrs 40 mins       ███░░░░░░░░░░░░░░░░░░░░░░   13.45 % 
+HTML                     2 hrs 2 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.46 % 
+TypeScript               1 hr 52 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.85 % 
+JSON                     41 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.51 % 
 
 🔥 Editors: 
-VS Code                  20 hrs 24 mins      ██████████████████░░░░░░░   71.59 % 
-Unknown Editor           4 hrs 35 mins       ████░░░░░░░░░░░░░░░░░░░░░   16.10 % 
-Cursor                   3 hrs 10 mins       ███░░░░░░░░░░░░░░░░░░░░░░   11.14 % 
-Antigravity              20 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.17 % 
+VS Code                  19 hrs 45 mins      ██████████████████░░░░░░░   72.28 % 
+Unknown Editor           4 hrs 35 mins       ████░░░░░░░░░░░░░░░░░░░░░   16.79 % 
+Cursor                   2 hrs 40 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   09.77 % 
+Antigravity              19 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.17 % 
 ```
 
 
- Last Updated on 2026-03-31 15:23:24 UTC
+ Last Updated on 2026-04-01 15:25:46 UTC
 <!--END_SECTION:waka-->
