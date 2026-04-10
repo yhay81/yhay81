@@ -98,16 +98,16 @@
 
 ```text
 💬 Programming Languages: 
-Other                    16 hrs 59 mins      █████████████░░░░░░░░░░░░   51.67 % 
-MDX                      14 hrs 28 mins      ███████████░░░░░░░░░░░░░░   43.99 % 
-Markdown                 29 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.49 % 
-TypeScript               17 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.87 % 
-JSON                     15 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.79 % 
+Other                    15 hrs 4 mins       ████████████░░░░░░░░░░░░░   48.97 % 
+MDX                      14 hrs 28 mins      ████████████░░░░░░░░░░░░░   47.00 % 
+Markdown                 25 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.38 % 
+TypeScript               17 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.93 % 
+Text                     9 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.49 % 
 
 🔥 Editors: 
-Cursor                   32 hrs 53 mins      █████████████████████████   100.00 % 
+Cursor                   30 hrs 47 mins      █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 2026-04-09 15:28:45 UTC
+ Last Updated on 2026-04-10 15:14:30 UTC
 <!--END_SECTION:waka-->
