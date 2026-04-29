@@ -92,23 +92,23 @@
 ## WakaTime (auto-updated)
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-4%2C101%20hrs%2055%20mins-blue?style=flat)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C106%20hrs%2025%20mins-blue?style=flat)
 
 📊 **This Week I Spent My Time On** 
 
 ```text
 💬 Programming Languages: 
-Markdown                 14 hrs 27 mins      ██████████████░░░░░░░░░░░   54.53 % 
-Other                    5 hrs 31 mins       █████░░░░░░░░░░░░░░░░░░░░   20.85 % 
-TypeScript               2 hrs 59 mins       ███░░░░░░░░░░░░░░░░░░░░░░   11.26 % 
-Python                   1 hr 40 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.29 % 
-CSS                      40 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.54 % 
+Markdown                 14 hrs 49 mins      ██████████████░░░░░░░░░░░   55.48 % 
+Other                    5 hrs 12 mins       █████░░░░░░░░░░░░░░░░░░░░   19.51 % 
+TypeScript               3 hrs 52 mins       ████░░░░░░░░░░░░░░░░░░░░░   14.47 % 
+CSS                      40 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.55 % 
+JavaScript               26 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   01.64 % 
 
 🔥 Editors: 
-Cursor                   18 hrs 22 mins      █████████████████░░░░░░░░   69.28 % 
-Unknown Editor           8 hrs 8 mins        ████████░░░░░░░░░░░░░░░░░   30.72 % 
+Cursor                   18 hrs 38 mins      █████████████████░░░░░░░░   69.75 % 
+Unknown Editor           8 hrs 5 mins        ████████░░░░░░░░░░░░░░░░░   30.25 % 
 ```
 
 
- Last Updated on 2026-04-28 15:45:18 UTC
+ Last Updated on 2026-04-29 15:35:50 UTC
 <!--END_SECTION:waka-->
