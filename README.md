@@ -98,17 +98,17 @@
 
 ```text
 💬 Programming Languages: 
-Markdown                 8 hrs 50 mins       ██████████░░░░░░░░░░░░░░░   39.71 % 
-TypeScript               5 hrs 11 mins       ██████░░░░░░░░░░░░░░░░░░░   23.37 % 
-Other                    4 hrs 38 mins       █████░░░░░░░░░░░░░░░░░░░░   20.89 % 
-Python                   46 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.52 % 
-CSS                      42 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.20 % 
+Markdown                 8 hrs 39 mins       ███████████░░░░░░░░░░░░░░   42.64 % 
+TypeScript               4 hrs 42 mins       ██████░░░░░░░░░░░░░░░░░░░   23.17 % 
+Other                    4 hrs 23 mins       █████░░░░░░░░░░░░░░░░░░░░   21.63 % 
+Python                   46 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   03.86 % 
+JavaScript               26 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   02.15 % 
 
 🔥 Editors: 
-Cursor                   20 hrs 13 mins      ███████████████████████░░   90.91 % 
-Unknown Editor           2 hrs 1 min         ██░░░░░░░░░░░░░░░░░░░░░░░   09.09 % 
+Cursor                   18 hrs 16 mins      ███████████████████████░░   90.04 % 
+Unknown Editor           2 hrs 1 min         ██░░░░░░░░░░░░░░░░░░░░░░░   09.96 % 
 ```
 
 
- Last Updated on 2026-05-02 15:13:20 UTC
+ Last Updated on 2026-05-03 15:13:11 UTC
 <!--END_SECTION:waka-->
