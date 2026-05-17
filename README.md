@@ -98,15 +98,15 @@
 
 ```text
 💬 Programming Languages: 
-JavaScript               14 mins             ████████████████░░░░░░░░░   62.96 % 
-Markdown                 6 mins              ██████░░░░░░░░░░░░░░░░░░░   25.35 % 
-Bash                     1 min               █░░░░░░░░░░░░░░░░░░░░░░░░   05.95 % 
-Python                   1 min               █░░░░░░░░░░░░░░░░░░░░░░░░   05.74 % 
+Markdown                 42 mins             ██████████████████░░░░░░░   70.38 % 
+JavaScript               14 mins             ██████░░░░░░░░░░░░░░░░░░░   24.98 % 
+Bash                     1 min               █░░░░░░░░░░░░░░░░░░░░░░░░   02.36 % 
+Python                   1 min               █░░░░░░░░░░░░░░░░░░░░░░░░   02.28 % 
 
 🔥 Editors: 
-Cursor                   23 mins             █████████████████████████   100.00 % 
+Cursor                   59 mins             █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 2026-05-16 15:19:46 UTC
+ Last Updated on 2026-05-17 15:20:36 UTC
 <!--END_SECTION:waka-->
