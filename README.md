@@ -92,21 +92,6 @@
 ## WakaTime (auto-updated)
 
 <!--START_SECTION:waka-->
-📊 **This Week I Spent My Time On** 
 
-```text
-💬 Programming Languages: 
-Markdown                 9 hrs 47 mins       ██████████░░░░░░░░░░░░░░░   38.54 % 
-Python                   3 hrs 13 mins       ███░░░░░░░░░░░░░░░░░░░░░░   12.68 % 
-JSON                     2 hrs 46 mins       ███░░░░░░░░░░░░░░░░░░░░░░   10.95 % 
-Astro                    2 hrs 44 mins       ███░░░░░░░░░░░░░░░░░░░░░░   10.79 % 
-HTML                     1 hr 51 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.33 % 
-
-🔥 Editors: 
-Cursor                   21 hrs 4 mins       █████████████████████░░░░   83.03 % 
-Claude Code              4 hrs 18 mins       ████░░░░░░░░░░░░░░░░░░░░░   16.97 % 
-```
-
-
- Last Updated on 2026-05-22 15:53:07 UTC
+ Last Updated on 2026-05-23 15:21:34 UTC
 <!--END_SECTION:waka-->
