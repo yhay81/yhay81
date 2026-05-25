@@ -92,23 +92,23 @@
 ## WakaTime (auto-updated)
 
 <!--START_SECTION:waka-->
-![Code Time](http://img.shields.io/badge/Code%20Time-4%2C511%20hrs%209%20mins-blue?style=flat)
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C523%20hrs%202%20mins-blue?style=flat)
 
 📊 **This Week I Spent My Time On** 
 
 ```text
 💬 Programming Languages: 
-Markdown                 14 hrs 45 mins      █████████░░░░░░░░░░░░░░░░   36.02 % 
-Python                   8 hrs 26 mins       █████░░░░░░░░░░░░░░░░░░░░   20.58 % 
-Astro                    5 hrs 13 mins       ███░░░░░░░░░░░░░░░░░░░░░░   12.74 % 
-JSON                     3 hrs 22 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   08.23 % 
-YAML                     2 hrs 19 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   05.67 % 
+Markdown                 14 hrs 20 mins      ████████░░░░░░░░░░░░░░░░░   30.21 % 
+Python                   11 hrs 47 mins      ██████░░░░░░░░░░░░░░░░░░░   24.83 % 
+Astro                    5 hrs 13 mins       ███░░░░░░░░░░░░░░░░░░░░░░   11.00 % 
+JSON                     4 hrs 27 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   09.40 % 
+YAML                     3 hrs 32 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   07.45 % 
 
 🔥 Editors: 
-Cursor                   38 hrs 19 mins      ███████████████████████░░   93.49 % 
-Claude Code              2 hrs 40 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   06.51 % 
+Cursor                   44 hrs 48 mins      ████████████████████████░   94.36 % 
+Claude Code              2 hrs 40 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   05.64 % 
 ```
 
 
- Last Updated on 2026-05-24 15:22:27 UTC
+ Last Updated on 2026-05-25 15:56:17 UTC
 <!--END_SECTION:waka-->
