@@ -98,17 +98,17 @@
 
 ```text
 💬 Programming Languages: 
-Markdown                 18 hrs 19 mins      ████████░░░░░░░░░░░░░░░░░   33.17 % 
-Python                   14 hrs 28 mins      ███████░░░░░░░░░░░░░░░░░░   26.20 % 
-Astro                    5 hrs 13 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   09.46 % 
-JSON                     3 hrs 55 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   07.12 % 
-YAML                     3 hrs 38 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   06.59 % 
+Markdown                 17 hrs 50 mins      ████████░░░░░░░░░░░░░░░░░   33.56 % 
+Python                   14 hrs 28 mins      ███████░░░░░░░░░░░░░░░░░░   27.22 % 
+Astro                    5 hrs 13 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   09.82 % 
+YAML                     3 hrs 38 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   06.84 % 
+JSON                     2 hrs 48 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   05.28 % 
 
 🔥 Editors: 
-Cursor                   52 hrs 32 mins      ████████████████████████░   95.15 % 
-Claude Code              2 hrs 40 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   04.85 % 
+Cursor                   50 hrs 30 mins      ████████████████████████░   95.03 % 
+Claude Code              2 hrs 38 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   04.97 % 
 ```
 
 
- Last Updated on 2026-05-26 16:15:56 UTC
+ Last Updated on 2026-05-27 16:17:14 UTC
 <!--END_SECTION:waka-->
