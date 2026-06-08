@@ -92,6 +92,25 @@
 ## WakaTime (auto-updated)
 
 <!--START_SECTION:waka-->
+![Code Time](http://img.shields.io/badge/Code%20Time-4%2C698%20hrs%2012%20mins-blue?style=flat)
 
- Last Updated on 2026-06-07 15:28:09 UTC
+📊 **This Week I Spent My Time On** 
+
+```text
+💬 Programming Languages: 
+Markdown                 89 hrs 27 mins      ████████████████░░░░░░░░░   62.26 % 
+TypeScript               25 hrs 45 mins      ████░░░░░░░░░░░░░░░░░░░░░   17.92 % 
+Python                   15 hrs 32 mins      ███░░░░░░░░░░░░░░░░░░░░░░   10.82 % 
+JSON                     5 hrs 9 mins        █░░░░░░░░░░░░░░░░░░░░░░░░   03.59 % 
+JavaScript               1 hr 41 mins        ░░░░░░░░░░░░░░░░░░░░░░░░░   01.18 % 
+
+🔥 Editors: 
+Cursor                   141 hrs 2 mins      █████████████████████████   98.16 % 
+Claude Code              1 hr 52 mins        ░░░░░░░░░░░░░░░░░░░░░░░░░   01.30 % 
+VS Code                  42 mins             ░░░░░░░░░░░░░░░░░░░░░░░░░   00.49 % 
+Codex CLI                3 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.04 % 
+```
+
+
+ Last Updated on 2026-06-08 16:22:15 UTC
 <!--END_SECTION:waka-->
