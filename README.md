@@ -98,18 +98,17 @@
 
 ```text
 💬 Programming Languages: 
-Markdown                 16 hrs 43 mins      ███████████░░░░░░░░░░░░░░   43.33 % 
-TypeScript               5 hrs 14 mins       ███░░░░░░░░░░░░░░░░░░░░░░   13.61 % 
-Python                   3 hrs 30 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   09.10 % 
-JSON                     2 hrs 31 mins       ██░░░░░░░░░░░░░░░░░░░░░░░   06.55 % 
-JavaScript               2 hrs 18 mins       █░░░░░░░░░░░░░░░░░░░░░░░░   05.98 % 
+Markdown                 11 hrs 13 mins      ████████████░░░░░░░░░░░░░   49.43 % 
+JSON                     1 hr 57 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   08.63 % 
+TypeScript               1 hr 56 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   08.54 % 
+Python                   1 hr 44 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   07.65 % 
+Astro                    1 hr 23 mins        ██░░░░░░░░░░░░░░░░░░░░░░░   06.14 % 
 
 🔥 Editors: 
-Cursor                   31 hrs 36 mins      ████████████████████░░░░░   81.93 % 
-Claude Code              6 hrs 56 mins       ████░░░░░░░░░░░░░░░░░░░░░   18.00 % 
-Antigravity CLI          1 min               ░░░░░░░░░░░░░░░░░░░░░░░░░   00.07 % 
+Cursor                   17 hrs 42 mins      ███████████████████░░░░░░   77.91 % 
+Claude Code              5 hrs 1 min         ██████░░░░░░░░░░░░░░░░░░░   22.09 % 
 ```
 
 
- Last Updated on 2026-07-19 15:19:08 UTC
+ Last Updated on 2026-07-20 15:34:13 UTC
 <!--END_SECTION:waka-->
