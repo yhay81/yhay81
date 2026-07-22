@@ -98,17 +98,12 @@
 
 ```text
 💬 Programming Languages: 
-Markdown                 5 hrs 33 mins       ███████████░░░░░░░░░░░░░░   45.74 % 
-Astro                    1 hr 23 mins        ███░░░░░░░░░░░░░░░░░░░░░░   11.46 % 
-JSON                     1 hr 18 mins        ███░░░░░░░░░░░░░░░░░░░░░░   10.76 % 
-JavaScript               54 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.41 % 
-Python                   51 mins             ██░░░░░░░░░░░░░░░░░░░░░░░   07.10 % 
+No Activity Tracked This Week
 
 🔥 Editors: 
-Cursor                   9 hrs 11 mins       ███████████████████░░░░░░   75.58 % 
-Claude Code              2 hrs 58 mins       ██████░░░░░░░░░░░░░░░░░░░   24.42 % 
+Claude Code              0 secs              █████████████████████████   100.00 % 
 ```
 
 
- Last Updated on 2026-07-21 15:30:52 UTC
+ Last Updated on 2026-07-22 15:29:55 UTC
 <!--END_SECTION:waka-->
