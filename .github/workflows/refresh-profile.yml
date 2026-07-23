@@ -1,0 +1,45 @@
+name: Refresh profile signals
+
+on:
+  schedule:
+    # Mondays at 09:17 JST (00:17 UTC)
+    - cron: "17 0 * * 1"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: refresh-profile
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    name: Refresh writing and telemetry
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out the profile repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Update profile signals
+        env:
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+        run: python3 scripts/update_profile.py
+
+      - name: Commit when content changed
+        shell: bash
+        run: |
+          if git diff --quiet -- README.md; then
+            echo "Profile signals are already current."
+            exit 0
+          fi
+
+          git diff --check
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "chore(profile): refresh live signals"
+          git push
