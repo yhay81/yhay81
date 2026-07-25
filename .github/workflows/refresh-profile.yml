@@ -1,4 +1,4 @@
-name: Refresh profile signals
+name: Refresh profile data
 
 on:
   schedule:
@@ -9,25 +9,33 @@ on:
 permissions: {}
 
 concurrency:
-  group: refresh-profile
-  cancel-in-progress: true
+  group: profile-writes
+  cancel-in-progress: false
+  queue: max
 
 jobs:
   refresh:
-    name: Refresh repository and writing signals
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
+    name: Refresh first-party signals and latest writing
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
     permissions:
-      contents: write
+      contents: write # Required only for the final, bot-authenticated profile commit.
 
     steps:
       - name: Check out the profile repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - name: Update profile signals
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version-file: .python-version
+
+      - name: Update first-party GitHub signals
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python3 scripts/update_profile.py
+        run: python scripts/update_profile.py --strict
 
       - name: Update latest Zenn writing
         uses: gautamkrishnar/blog-post-workflow@2786e54a01b71aec80a5118c2bd6b5044e842597 # 1.9.6
@@ -41,17 +49,25 @@ jobs:
           retry_count: 2
           retry_wait_time: 3
 
-      - name: Commit when content changed
-        shell: bash
+      - name: Validate generated profile
         run: |
-          if git diff --quiet -- README.md; then
-            echo "Profile signals are already current."
+          python -m compileall -q scripts tests
+          python -m unittest discover -s tests -v
+
+      - name: Commit when profile data changed
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add -- README.md github-metrics.svg
+          if git diff --cached --quiet; then
+            echo "Profile data is already current."
             exit 0
           fi
 
-          git diff --check
+          git diff --cached --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git commit -m "chore(profile): refresh live signals"
+          git commit -m "chore(profile): refresh public signals"
+          gh auth setup-git
           git push
