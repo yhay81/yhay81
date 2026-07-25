@@ -1,0 +1,55 @@
+name: Refresh engineering metrics
+
+on:
+  schedule:
+    # Saturdays at 09:23 JST (00:23 UTC)
+    - cron: "23 0 * * 6"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: refresh-engineering-metrics
+  cancel-in-progress: true
+
+jobs:
+  metrics:
+    name: Generate integrated GitHub infographic
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+
+    steps:
+      - name: Explain missing optional token
+        if: ${{ env.METRICS_TOKEN == '' }}
+        run: |
+          echo "::notice title=Metrics disabled::Add the METRICS_TOKEN repository secret, then run this workflow manually."
+
+      - name: Generate engineering metrics
+        if: ${{ env.METRICS_TOKEN != '' }}
+        uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: yhay81
+          filename: github-metrics.svg
+          template: classic
+          base: header, activity, community, metadata
+          config_timezone: Asia/Tokyo
+          config_order: base.header, languages, isocalendar, activity, repositories, base.activity+community
+          plugin_languages: "yes"
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+          plugin_languages_details: percentage
+          plugin_languages_threshold: 2%
+          plugin_languages_indepth: "no"
+          plugin_isocalendar: "yes"
+          plugin_isocalendar_duration: half-year
+          plugin_activity: "yes"
+          plugin_activity_days: 14
+          plugin_activity_limit: 5
+          plugin_activity_filter: all
+          plugin_repositories: "yes"
+          plugin_repositories_featured: yhay81/pylopdf, yhay81/GASlacker, yhay81/public-data-catalog

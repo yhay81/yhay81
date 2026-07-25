@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   refresh:
-    name: Refresh writing and telemetry
+    name: Refresh repository and writing signals
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
@@ -26,8 +26,20 @@ jobs:
 
       - name: Update profile signals
         env:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: python3 scripts/update_profile.py
+
+      - name: Update latest Zenn writing
+        uses: gautamkrishnar/blog-post-workflow@2786e54a01b71aec80a5118c2bd6b5044e842597 # 1.9.6
+        with:
+          feed_list: https://zenn.dev/yhay81/feed
+          max_post_count: 3
+          template: "- [$title]($url) — $date$newline"
+          date_format: "UTC:yyyy-mm-dd"
+          skip_commit: true
+          enable_keepalive: false
+          retry_count: 2
+          retry_wait_time: 3
 
       - name: Commit when content changed
         shell: bash
