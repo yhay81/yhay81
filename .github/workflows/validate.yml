@@ -57,11 +57,15 @@ jobs:
           args: format --check scripts tests
           version-file: requirements-dev.txt
 
+      - name: Set up uv for the Actions audit
+        if: matrix.python-version == '3.14'
+        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
+        with:
+          version: "0.11.32"
+          enable-cache: true
+
       - name: Audit GitHub Actions
         if: matrix.python-version == '3.14'
-        uses: zizmorcore/zizmor-action@5f14fd08f7cf1cb1609c1e344975f152c7ee938d # v0.5.6
-        with:
-          version: 1.28.0
-          persona: pedantic
-          advanced-security: false
-          annotations: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: uvx --from zizmor==1.28.0 zizmor --persona pedantic --format github .
