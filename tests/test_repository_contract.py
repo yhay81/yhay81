@@ -38,7 +38,12 @@ class RepositoryContractTests(unittest.TestCase):
         entries = [line for line in lines[start + 1 : end] if line]
 
         self.assertEqual(len(entries), 3)
-        self.assertTrue(all(entry.startswith("- [") for entry in entries))
+        for entry in entries:
+            self.assertRegex(
+                entry,
+                r"^- \[.+]\(https://zenn\.dev/yhay81/(?:articles|books)/[^)]+\)"
+                r" — \d{4}-\d{2}-\d{2}$",
+            )
 
     def test_external_actions_are_pinned_to_full_commit_shas(self) -> None:
         uses_pattern = re.compile(r"^\s*uses:\s+[^@\s]+@([0-9a-f]{40})(?:\s+#.*)?$")
@@ -64,7 +69,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertNotIn("3.13", validate_workflow)
         self.assertIn('target-version = "py314"', ruff_config)
 
-    def test_profile_refresh_is_daily_and_avoids_duplicate_ci(self) -> None:
+    def test_profile_refresh_is_daily_and_uses_only_github_owned_actions(self) -> None:
         refresh_workflow = (ROOT / ".github" / "workflows" / "refresh-profile.yml").read_text(
             encoding="utf-8"
         )
@@ -75,7 +80,16 @@ class RepositoryContractTests(unittest.TestCase):
 
         self.assertIn('cron: "17 0 * * *"', refresh_workflow)
         self.assertIn("timeout-minutes: 5", refresh_workflow)
-        self.assertIn("[skip ci]", refresh_workflow)
+        self.assertNotIn("[skip ci]", refresh_workflow)
+        self.assertNotIn("blog-post-workflow", refresh_workflow)
+        self.assertTrue(
+            all(
+                "uses: actions/" in line
+                for line in refresh_workflow.splitlines()
+                if "uses:" in line
+            )
+        )
+        self.assertNotIn("$generated_at", footprint_template)
         self.assertIn("daily refresh", footprint_template)
         self.assertIn("regenerated daily", readme)
 
@@ -87,15 +101,10 @@ class RepositoryContractTests(unittest.TestCase):
         expected = {
             "followers",
             "forks",
-            "generated_at",
-            "language_1_width",
-            "language_2_width",
-            "language_2_x",
-            "language_3_width",
-            "language_3_x",
-            "language_4_width",
-            "language_4_x",
+            "leading_language",
             "language_counts",
+            "language_legend",
+            "language_segments",
             "public_repositories",
             "stars",
         }
@@ -114,6 +123,9 @@ class RepositoryContractTests(unittest.TestCase):
 
         self.assertNotIn("wakatime", tracked_text)
         self.assertNotIn("lowlighter", tracked_text)
+        self.assertNotIn("blog-post-workflow", tracked_text)
+        self.assertNotIn("haya.company", tracked_text)
+        self.assertIn("https://haya-inc.co.jp/", tracked_text)
         self.assertFalse((ROOT / ".github" / "workflows" / "metrics.yml").exists())
         self.assertFalse((ROOT / "github-metrics-live.svg").exists())
 

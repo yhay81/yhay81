@@ -32,23 +32,10 @@ jobs:
         with:
           python-version-file: .python-version
 
-      - name: Update first-party GitHub signals
+      - name: Update GitHub signals and latest Zenn writing
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/update_profile.py --strict
-
-      - name: Update latest Zenn writing
-        uses: gautamkrishnar/blog-post-workflow@2786e54a01b71aec80a5118c2bd6b5044e842597 # 1.9.6
-        with:
-          feed_list: https://zenn.dev/yhay81/feed
-          max_post_count: 3
-          template: "- [$title]($url) — $date$newline"
-          tag_post_pre_newline: true
-          date_format: "UTC:yyyy-mm-dd"
-          skip_commit: true
-          enable_keepalive: false
-          retry_count: 2
-          retry_wait_time: 3
 
       - name: Validate generated profile
         run: |
@@ -69,8 +56,6 @@ jobs:
           git diff --cached --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # This job already validates generated output, so do not start the
-          # repository validation workflow a second time for the bot commit.
-          git commit -m "chore(profile): refresh public signals [skip ci]"
+          git commit -m "chore(profile): refresh public signals"
           gh auth setup-git
           git push

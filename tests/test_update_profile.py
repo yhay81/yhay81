@@ -12,12 +12,18 @@ from update_profile import (
     GITHUB_API_VERSION,
     REPOSITORIES_END,
     REPOSITORIES_START,
+    WRITING_END,
+    WRITING_START,
     GitHubProfile,
+    LanguageCategory,
     PublicRepository,
     RepositorySignal,
+    WritingEntry,
     allocate_widths,
     build_outputs,
     fetch_json,
+    language_categories,
+    parse_zenn_feed,
     render_repositories,
     replace_section,
 )
@@ -95,7 +101,7 @@ class ProfileUpdaterTests(unittest.TestCase):
         self.assertEqual(allocate_widths([0, 0], 100), [0, 0])
 
     def test_builds_readme_and_footprint_from_one_snapshot(self) -> None:
-        repositories = tuple(
+        repositories = [
             PublicRepository(
                 full_name=full_name,
                 url=f"https://github.com/{full_name}",
@@ -112,31 +118,109 @@ class ProfileUpdaterTests(unittest.TestCase):
                 ),
                 start=1,
             )
+        ]
+        repositories.extend(
+            PublicRepository(
+                full_name=f"yhay81/example-{index}",
+                url=f"https://github.com/yhay81/example-{index}",
+                stars=0,
+                forks=0,
+                language=language,
+                is_fork=False,
+            )
+            for index, language in enumerate(
+                ("Python", "Python", "JavaScript", "TypeScript", "HTML", "Shell"),
+                start=1,
+            )
         )
         profile = GitHubProfile(
             public_repositories=51,
             followers=63,
-            repositories=repositories,
+            repositories=tuple(repositories),
         )
-        document = f"{REPOSITORIES_START}\nold\n{REPOSITORIES_END}\n"
+        document = (
+            f"{REPOSITORIES_START}\nold\n{REPOSITORIES_END}\n{WRITING_START}\nold\n{WRITING_END}\n"
+        )
         template = (
-            "$generated_at|$public_repositories|$stars|$forks|$followers|"
-            "$language_1_width|$language_2_x|$language_2_width|"
-            "$language_3_x|$language_3_width|$language_4_x|"
-            "$language_4_width|$language_counts"
+            "$public_repositories|$stars|$forks|$followers|$leading_language|$language_counts"
+        )
+        writing = (
+            WritingEntry(
+                title="A [reliable] profile",
+                url="https://zenn.dev/yhay81/articles/reliable-profile",
+                published_on="2026-07-25",
+            ),
         )
 
         updated_document, footprint = build_outputs(
             document,
             template,
             profile,
-            generated_at="2026-07-25",
+            writing,
         )
 
         self.assertIn("**[pylopdf](https://github.com/yhay81/pylopdf)**", updated_document)
+        self.assertIn(
+            r"- [A \[reliable\] profile](https://zenn.dev/yhay81/articles/reliable-profile)",
+            updated_document,
+        )
         self.assertEqual(
             footprint,
-            "2026-07-25|51|6|3|63|179|179|179|358|178|536|0|1 · 1 · 1 · 0",
+            "51|6|3|63|Python|3 · 2 · 1 · 1 · 2",
+        )
+        self.assertEqual(
+            language_categories(profile),
+            (
+                LanguageCategory("Python", 3),
+                LanguageCategory("JavaScript", 2),
+                LanguageCategory("HTML", 1),
+                LanguageCategory("Rust", 1),
+                LanguageCategory("Other", 2),
+            ),
+        )
+
+    def test_parses_zenn_feed_in_utc_order(self) -> None:
+        payload = b"""\
+<rss><channel>
+  <item>
+    <title>First article</title>
+    <link>https://zenn.dev/yhay81/articles/first</link>
+    <pubDate>Sat, 25 Jul 2026 23:30:00 +0900</pubDate>
+  </item>
+  <item>
+    <title>Second article</title>
+    <link>https://zenn.dev/yhay81/articles/second</link>
+    <pubDate>Fri, 24 Jul 2026 09:17:41 GMT</pubDate>
+  </item>
+  <item>
+    <title>Engineering book</title>
+    <link>https://zenn.dev/yhay81/books/engineering</link>
+    <pubDate>Thu, 23 Jul 2026 10:00:00 GMT</pubDate>
+  </item>
+</channel></rss>
+"""
+
+        entries = parse_zenn_feed(payload)
+
+        self.assertEqual(
+            entries,
+            (
+                WritingEntry(
+                    title="First article",
+                    url="https://zenn.dev/yhay81/articles/first",
+                    published_on="2026-07-25",
+                ),
+                WritingEntry(
+                    title="Second article",
+                    url="https://zenn.dev/yhay81/articles/second",
+                    published_on="2026-07-24",
+                ),
+                WritingEntry(
+                    title="Engineering book",
+                    url="https://zenn.dev/yhay81/books/engineering",
+                    published_on="2026-07-23",
+                ),
+            ),
         )
 
     def test_fetch_json_uses_versioned_api_and_retries_transient_failures(self) -> None:

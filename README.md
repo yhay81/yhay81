@@ -5,16 +5,6 @@
 </picture>
 
 <p align="center">
-  <code>AI SYSTEMS</code>
-  ·
-  <code>PYTHON / RUST</code>
-  ·
-  <code>TYPESCRIPT</code>
-  ·
-  <code>CLOUD DELIVERY</code>
-</p>
-
-<p align="center">
   <a href="https://yusuke-hayashi.com/">Portfolio</a>
   ·
   <a href="https://haya-inc.co.jp/">Haya Inc.</a>
@@ -79,7 +69,6 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
 - [候補者の状態から逆算する、ベンチャーのエンジニア採用チャネル設計](https://zenn.dev/yhay81/articles/202601-venture-engineer-hiring-channels) — 2026-07-25
 - [Sigstore入門：どこで使われ、どう使えるのか](https://zenn.dev/yhay81/articles/202607-sigstore-guide) — 2026-07-24
 - [Google Apps Script向けSlack APIクライアントOSS「GASlacker」を作り直した](https://zenn.dev/yhay81/articles/202607-google-form-slack) — 2026-07-22
-
 <!-- BLOG-POST-LIST:END -->
 
 ---
