@@ -113,7 +113,7 @@ def fetch_json(
                 raise
             retry_after = error.headers.get("Retry-After")
             delay = float(retry_after) if retry_after else float(2**attempt)
-        except (OSError, TimeoutError, urllib.error.URLError):
+        except OSError, TimeoutError, urllib.error.URLError:
             if attempt == attempts - 1:
                 raise
             delay = float(2**attempt)

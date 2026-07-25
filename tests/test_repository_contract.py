@@ -54,6 +54,16 @@ class RepositoryContractTests(unittest.TestCase):
                 with self.subTest(path=path.name, line=line.strip()):
                     self.assertRegex(line, uses_pattern)
 
+    def test_python_tooling_targets_only_python_314(self) -> None:
+        validate_workflow = (ROOT / ".github" / "workflows" / "validate.yml").read_text(
+            encoding="utf-8"
+        )
+        ruff_config = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+
+        self.assertEqual((ROOT / ".python-version").read_text(encoding="utf-8").strip(), "3.14")
+        self.assertNotIn("3.13", validate_workflow)
+        self.assertIn('target-version = "py314"', ruff_config)
+
     def test_footprint_template_has_the_complete_contract(self) -> None:
         template = Template(
             (ROOT / "assets" / "github-metrics.template.svg").read_text(encoding="utf-8")

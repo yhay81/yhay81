@@ -15,17 +15,11 @@ concurrency:
 
 jobs:
   validate:
-    name: Python ${{ matrix.python-version }}
+    name: Python 3.14
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version:
-          - "3.13"
-          - "3.14"
 
     steps:
       - name: Check out the repository
@@ -36,7 +30,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: ${{ matrix.python-version }}
+          python-version-file: .python-version
 
       - name: Compile and test
         run: |
@@ -44,28 +38,24 @@ jobs:
           python -m unittest discover -s tests -v
 
       - name: Lint with Ruff
-        if: matrix.python-version == '3.14'
         uses: astral-sh/ruff-action@278981a28ce3188b1e39527901f38254bf3aac89 # v4.1.0
         with:
           args: check scripts tests
           version-file: requirements-dev.txt
 
       - name: Verify Ruff formatting
-        if: matrix.python-version == '3.14'
         uses: astral-sh/ruff-action@278981a28ce3188b1e39527901f38254bf3aac89 # v4.1.0
         with:
           args: format --check scripts tests
           version-file: requirements-dev.txt
 
       - name: Set up uv for the Actions audit
-        if: matrix.python-version == '3.14'
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
         with:
           version: "0.11.32"
           enable-cache: true
 
       - name: Audit GitHub Actions
-        if: matrix.python-version == '3.14'
         env:
           GH_TOKEN: ${{ github.token }}
         run: uvx --from zizmor==1.28.0 zizmor --persona pedantic --format github .
