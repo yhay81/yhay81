@@ -75,10 +75,9 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
 
 ## Latest writing
 
-<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:START -->- [候補者の状態から逆算する、ベンチャーのエンジニア採用チャネル設計](https://zenn.dev/yhay81/articles/202601-venture-engineer-hiring-channels) — 2026-07-25
 - [Sigstore入門：どこで使われ、どう使えるのか](https://zenn.dev/yhay81/articles/202607-sigstore-guide) — 2026-07-24
 - [Google Apps Script向けSlack APIクライアントOSS「GASlacker」を作り直した](https://zenn.dev/yhay81/articles/202607-google-form-slack) — 2026-07-22
-- [ソフトウェアエンジニアリング 知識体系 2025-2026](https://zenn.dev/yhay81/books/software-engineering-2026) — 2026-03-15
 <!-- BLOG-POST-LIST:END -->
 
 ---
