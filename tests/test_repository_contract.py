@@ -31,6 +31,15 @@ class RepositoryContractTests(unittest.TestCase):
                 path = ROOT / reference.removeprefix("./").split("#", 1)[0]
                 self.assertTrue(path.is_file(), f"Missing local README target: {reference}")
 
+    def test_latest_writing_markers_wrap_a_markdown_list(self) -> None:
+        lines = (ROOT / "README.md").read_text(encoding="utf-8").splitlines()
+        start = lines.index("<!-- BLOG-POST-LIST:START -->")
+        end = lines.index("<!-- BLOG-POST-LIST:END -->")
+        entries = lines[start + 1 : end]
+
+        self.assertEqual(len(entries), 3)
+        self.assertTrue(all(entry.startswith("- [") for entry in entries))
+
     def test_external_actions_are_pinned_to_full_commit_shas(self) -> None:
         uses_pattern = re.compile(r"^\s*uses:\s+[^@\s]+@([0-9a-f]{40})(?:\s+#.*)?$")
         workflow_paths = sorted((ROOT / ".github" / "workflows").glob("*.yml"))

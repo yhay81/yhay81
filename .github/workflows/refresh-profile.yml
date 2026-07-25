@@ -43,6 +43,7 @@ jobs:
           feed_list: https://zenn.dev/yhay81/feed
           max_post_count: 3
           template: "- [$title]($url) — $date$newline"
+          tag_post_pre_newline: true
           date_format: "UTC:yyyy-mm-dd"
           skip_commit: true
           enable_keepalive: false
