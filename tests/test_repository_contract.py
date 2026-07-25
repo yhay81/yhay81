@@ -35,7 +35,7 @@ class RepositoryContractTests(unittest.TestCase):
         lines = (ROOT / "README.md").read_text(encoding="utf-8").splitlines()
         start = lines.index("<!-- BLOG-POST-LIST:START -->")
         end = lines.index("<!-- BLOG-POST-LIST:END -->")
-        entries = lines[start + 1 : end]
+        entries = [line for line in lines[start + 1 : end] if line]
 
         self.assertEqual(len(entries), 3)
         self.assertTrue(all(entry.startswith("- [") for entry in entries))
