@@ -64,6 +64,21 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertNotIn("3.13", validate_workflow)
         self.assertIn('target-version = "py314"', ruff_config)
 
+    def test_profile_refresh_is_daily_and_avoids_duplicate_ci(self) -> None:
+        refresh_workflow = (ROOT / ".github" / "workflows" / "refresh-profile.yml").read_text(
+            encoding="utf-8"
+        )
+        footprint_template = (ROOT / "assets" / "github-metrics.template.svg").read_text(
+            encoding="utf-8"
+        )
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn('cron: "17 0 * * *"', refresh_workflow)
+        self.assertIn("timeout-minutes: 5", refresh_workflow)
+        self.assertIn("[skip ci]", refresh_workflow)
+        self.assertIn("daily refresh", footprint_template)
+        self.assertIn("regenerated daily", readme)
+
     def test_footprint_template_has_the_complete_contract(self) -> None:
         template = Template(
             (ROOT / "assets" / "github-metrics.template.svg").read_text(encoding="utf-8")

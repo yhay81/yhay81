@@ -2,8 +2,8 @@ name: Refresh profile data
 
 on:
   schedule:
-    # Mondays at 09:17 JST (00:17 UTC)
-    - cron: "17 0 * * 1"
+    # Daily at 09:17 JST (00:17 UTC); :17 avoids the busiest top-of-hour window.
+    - cron: "17 0 * * *"
   workflow_dispatch:
 
 permissions: {}
@@ -17,7 +17,7 @@ jobs:
   refresh:
     name: Refresh first-party signals and latest writing
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 5
     permissions:
       contents: write # Required only for the final, bot-authenticated profile commit.
 
@@ -69,6 +69,8 @@ jobs:
           git diff --cached --check
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(profile): refresh public signals"
+          # This job already validates generated output, so do not start the
+          # repository validation workflow a second time for the bot commit.
+          git commit -m "chore(profile): refresh public signals [skip ci]"
           gh auth setup-git
           git push

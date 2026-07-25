@@ -53,7 +53,7 @@
   <text x="51" y="42" class="label">ENGINEERING FOOTPRINT / PUBLIC GITHUB</text>
   <text x="51" y="59" class="caption">Signal over spectacle · generated from first-party repository data</text>
   <text x="928" y="42" text-anchor="end" class="label">$generated_at</text>
-  <text x="928" y="59" text-anchor="end" class="caption">weekly refresh</text>
+  <text x="928" y="59" text-anchor="end" class="caption">daily refresh</text>
 
   <g transform="translate(32 85)">
     <g>
