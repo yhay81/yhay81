@@ -71,7 +71,7 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
   <img src="./github-metrics.svg" alt="Integrated GitHub engineering metrics for Yusuke Hayashi" width="100%">
 </p>
 
-<sub>Public GitHub signals, refreshed weekly. The infographic favors engineering breadth and sustained activity over coding-time vanity metrics.</sub>
+<sub>Curated for first-glance readability. <a href="./github-metrics-live.svg">Open the weekly live metrics</a> for the detailed data view.</sub>
 
 ## Latest writing
 
