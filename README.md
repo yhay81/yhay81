@@ -46,7 +46,7 @@
 <!-- profile:repositories:start -->
 | Project | Engineering signal | Live OSS telemetry |
 |:--|:--|:--|
-| **[pylopdf](https://github.com/yhay81/pylopdf)** | Python ergonomics over a Rust PDF core; small wheels and zero runtime dependencies. | `★ 0` `forks 0` · Python / Rust |
+| **[pylopdf](https://github.com/yhay81/pylopdf)** | Python ergonomics over a Rust PDF core; small wheels and zero runtime dependencies. | `★ 1` `forks 0` · Python / Rust |
 | **[GASlacker](https://github.com/yhay81/GASlacker)** | A production-minded Slack Web API client: 168 methods, rate-limit retries, uploads, and OAuth v2. | `★ 30` `forks 10` · TypeScript / GAS |
 | **[public-data-catalog](https://github.com/yhay81/public-data-catalog)** | AI-friendly public API and dataset metadata, published in machine-readable form. | `★ 0` `forks 0` · Python / Data |
 <!-- profile:repositories:end -->
