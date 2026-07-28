@@ -35,42 +35,14 @@ ZENN_FEED_URL = "https://zenn.dev/yhay81/feed"
 USER_AGENT = "yhay81-profile-updater/4.0"
 RETRYABLE_HTTP_STATUSES = frozenset({429, 500, 502, 503, 504})
 
-REPOSITORIES_START = "<!-- profile:repositories:start -->"
-REPOSITORIES_END = "<!-- profile:repositories:end -->"
 WRITING_START = "<!-- BLOG-POST-LIST:START -->"
 WRITING_END = "<!-- BLOG-POST-LIST:END -->"
 WRITING_ENTRY_LIMIT = 3
-
-FEATURED_REPOSITORIES = (
-    (
-        "yhay81/pylopdf",
-        "Python ergonomics over a Rust PDF core; small wheels and zero runtime dependencies.",
-        "Python / Rust",
-    ),
-    (
-        "yhay81/GASlacker",
-        "A production-minded Slack Web API client: 168 methods, rate-limit retries, uploads, and OAuth v2.",
-        "TypeScript / GAS",
-    ),
-    (
-        "yhay81/public-data-catalog",
-        "AI-friendly public API and dataset metadata, published in machine-readable form.",
-        "Python / Data",
-    ),
-)
 
 FOOTPRINT_BAR_WIDTH = 536
 FOOTPRINT_LANGUAGE_LIMIT = 4
 FOOTPRINT_LANGUAGE_LABEL_X = (18, 126, 234, 342, 450)
 FOOTPRINT_LANGUAGE_COLORS = ("cyan", "violet", "orange", "pink", "green")
-
-
-@dataclass(frozen=True)
-class RepositorySignal:
-    full_name: str
-    url: str
-    stars: int
-    forks: int
 
 
 @dataclass(frozen=True)
@@ -270,41 +242,6 @@ def fetch_github_profile(github_token: str | None = None) -> GitHubProfile:
     )
 
 
-def featured_repository_signals(profile: GitHubProfile) -> list[RepositorySignal]:
-    by_name = {repository.full_name.casefold(): repository for repository in profile.repositories}
-    signals: list[RepositorySignal] = []
-    for full_name, _, _ in FEATURED_REPOSITORIES:
-        repository = by_name[full_name.casefold()]
-        signals.append(
-            RepositorySignal(
-                full_name=repository.full_name,
-                url=repository.url,
-                stars=repository.stars,
-                forks=repository.forks,
-            )
-        )
-    return signals
-
-
-def render_repositories(repositories: list[RepositorySignal]) -> str:
-    by_name = {repository.full_name.casefold(): repository for repository in repositories}
-    lines = [
-        "| Project | Engineering signal | Live OSS telemetry |",
-        "|:--|:--|:--|",
-    ]
-
-    for full_name, engineering_signal, stack in FEATURED_REPOSITORIES:
-        repository = by_name[full_name.casefold()]
-        project_name = full_name.split("/", 1)[1]
-        lines.append(
-            f"| **[{project_name}]({repository.url})** "
-            f"| {engineering_signal} "
-            f"| `★ {repository.stars:,}` `forks {repository.forks:,}` · {stack} |"
-        )
-
-    return "\n".join(lines)
-
-
 def escape_markdown_link_text(text: str) -> str:
     return text.replace("\\", "\\\\").replace("[", "\\[").replace("]", "\\]")
 
@@ -417,12 +354,6 @@ def build_outputs(
 ) -> tuple[str, str]:
     updated_document = replace_section(
         document,
-        REPOSITORIES_START,
-        REPOSITORIES_END,
-        render_repositories(featured_repository_signals(profile)),
-    )
-    updated_document = replace_section(
-        updated_document,
         WRITING_START,
         WRITING_END,
         render_writing(writing),

@@ -10,21 +10,17 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 from update_profile import (
     FOOTPRINT_BAR_WIDTH,
     GITHUB_API_VERSION,
-    REPOSITORIES_END,
-    REPOSITORIES_START,
     WRITING_END,
     WRITING_START,
     GitHubProfile,
     LanguageCategory,
     PublicRepository,
-    RepositorySignal,
     WritingEntry,
     allocate_widths,
     build_outputs,
     fetch_json,
     language_categories,
     parse_zenn_feed,
-    render_repositories,
     replace_section,
 )
 
@@ -44,52 +40,27 @@ class FakeResponse:
 
 
 class ProfileUpdaterTests(unittest.TestCase):
-    def test_renders_repository_signals(self) -> None:
-        repositories = [
-            RepositorySignal(
-                full_name=full_name,
-                url=f"https://github.com/{full_name}",
-                stars=index * 1000,
-                forks=index,
-            )
-            for index, full_name in enumerate(
-                (
-                    "yhay81/pylopdf",
-                    "yhay81/GASlacker",
-                    "yhay81/public-data-catalog",
-                ),
-                start=1,
-            )
-        ]
-
-        rendered = render_repositories(repositories)
-
-        self.assertIn("**[pylopdf](https://github.com/yhay81/pylopdf)**", rendered)
-        self.assertIn("`★ 1,000` `forks 1`", rendered)
-        self.assertIn("`★ 2,000` `forks 2`", rendered)
-        self.assertLess(rendered.index("pylopdf"), rendered.index("GASlacker"))
-
     def test_replaces_exactly_one_marker_pair(self) -> None:
-        document = f"before\n{REPOSITORIES_START}\nold\n{REPOSITORIES_END}\nafter\n"
+        document = f"before\n{WRITING_START}\nold\n{WRITING_END}\nafter\n"
 
         updated = replace_section(
             document,
-            REPOSITORIES_START,
-            REPOSITORIES_END,
+            WRITING_START,
+            WRITING_END,
             "new",
         )
 
         self.assertEqual(
             updated,
-            f"before\n{REPOSITORIES_START}\nnew\n{REPOSITORIES_END}\nafter\n",
+            f"before\n{WRITING_START}\nnew\n{WRITING_END}\nafter\n",
         )
 
     def test_rejects_missing_markers(self) -> None:
         with self.assertRaises(ValueError):
             replace_section(
                 "no markers",
-                REPOSITORIES_START,
-                REPOSITORIES_END,
+                WRITING_START,
+                WRITING_END,
                 "new",
             )
 
@@ -101,46 +72,26 @@ class ProfileUpdaterTests(unittest.TestCase):
         self.assertEqual(allocate_widths([0, 0], 100), [0, 0])
 
     def test_builds_readme_and_footprint_from_one_snapshot(self) -> None:
-        repositories = [
+        repositories = tuple(
             PublicRepository(
-                full_name=full_name,
-                url=f"https://github.com/{full_name}",
+                full_name=f"yhay81/example-{index}",
+                url=f"https://github.com/yhay81/example-{index}",
                 stars=index,
                 forks=index - 1,
                 language=language,
                 is_fork=False,
             )
-            for index, (full_name, language) in enumerate(
-                (
-                    ("yhay81/pylopdf", "Rust"),
-                    ("yhay81/GASlacker", "JavaScript"),
-                    ("yhay81/public-data-catalog", "Python"),
-                ),
-                start=1,
-            )
-        ]
-        repositories.extend(
-            PublicRepository(
-                full_name=f"yhay81/example-{index}",
-                url=f"https://github.com/yhay81/example-{index}",
-                stars=0,
-                forks=0,
-                language=language,
-                is_fork=False,
-            )
             for index, language in enumerate(
-                ("Python", "Python", "JavaScript", "TypeScript", "HTML", "Shell"),
+                ("Rust", "JavaScript", "Python", "Python", "Python", "JavaScript"),
                 start=1,
             )
         )
         profile = GitHubProfile(
             public_repositories=51,
             followers=63,
-            repositories=tuple(repositories),
+            repositories=repositories,
         )
-        document = (
-            f"{REPOSITORIES_START}\nold\n{REPOSITORIES_END}\n{WRITING_START}\nold\n{WRITING_END}\n"
-        )
+        document = f"Proof stays static.\n{WRITING_START}\nold\n{WRITING_END}\n"
         template = (
             "$public_repositories|$stars|$forks|$followers|$leading_language|$language_counts"
         )
@@ -159,23 +110,23 @@ class ProfileUpdaterTests(unittest.TestCase):
             writing,
         )
 
-        self.assertIn("**[pylopdf](https://github.com/yhay81/pylopdf)**", updated_document)
+        self.assertIn("Proof stays static.", updated_document)
         self.assertIn(
             r"- [A \[reliable\] profile](https://zenn.dev/yhay81/articles/reliable-profile)",
             updated_document,
         )
         self.assertEqual(
             footprint,
-            "51|6|3|63|Python|3 · 2 · 1 · 1 · 2",
+            "51|21|15|63|Python|3 · 2 · 1 · 0 · 0",
         )
         self.assertEqual(
             language_categories(profile),
             (
                 LanguageCategory("Python", 3),
                 LanguageCategory("JavaScript", 2),
-                LanguageCategory("HTML", 1),
                 LanguageCategory("Rust", 1),
-                LanguageCategory("Other", 2),
+                LanguageCategory("—", 0),
+                LanguageCategory("Other", 0),
             ),
         )
 

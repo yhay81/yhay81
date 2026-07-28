@@ -34,22 +34,20 @@
       <br><br><code>PYTHON</code> <code>RUST</code> <code>APIs</code>
     </td>
     <td width="33%">
-      <strong>03 / DELIVERY</strong><br><br>
-      Cloud architecture, CI/CD, observability, and team practices that carry software safely into operation.
-      <br><br><code>CLOUD</code> <code>CI/CD</code> <code>OPS</code>
+      <strong>03 / VERIFICATION &amp; SECURITY</strong><br><br>
+      Reproducible baselines, bounded tools, evidence-backed validation, and responsible disclosure.
+      <br><br><code>REPRO</code> <code>SECURITY</code> <code>EVIDENCE</code>
     </td>
   </tr>
 </table>
 
 ## Proof of work
 
-<!-- profile:repositories:start -->
-| Project | Engineering signal | Live OSS telemetry |
-|:--|:--|:--|
-| **[pylopdf](https://github.com/yhay81/pylopdf)** | Python ergonomics over a Rust PDF core; small wheels and zero runtime dependencies. | `★ 2` `forks 0` · Python / Rust |
-| **[GASlacker](https://github.com/yhay81/GASlacker)** | A production-minded Slack Web API client: 168 methods, rate-limit retries, uploads, and OAuth v2. | `★ 30` `forks 10` · TypeScript / GAS |
-| **[public-data-catalog](https://github.com/yhay81/public-data-catalog)** | AI-friendly public API and dataset metadata, published in machine-readable form. | `★ 0` `forks 0` · Python / Data |
-<!-- profile:repositories:end -->
+| Shipped system | Evidence |
+|:--|:--|
+| **[HayaSend](https://github.com/haya-inc/hayasend)** | An early-beta, customer-owned transactional email foundation with Resend-compatible APIs, durable delivery records, and deployable infrastructure. |
+| **[Hayate ecosystem](https://github.com/hayatepy/hayate)** | A web-standards-first Python framework spanning ASGI, Cloudflare Workers, and AWS Lambda, with coordinated auth, MCP, OpenAPI, admin, HTMX, and scaffolding packages. |
+| **[AI Partners](https://ai-partners.info/) + [Demand](https://demand.ai-partners.info/)** | Publicly accessible discovery surfaces that separate AI-adoption partner research from active project demand. |
 
 > **Current operating loop** · frame the problem → model the system → ship a thin slice → measure reality → harden what matters
 
@@ -66,9 +64,9 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
 ## Latest writing
 
 <!-- BLOG-POST-LIST:START -->
+- [OpenTelemetry Collectorの永続キューはどこまで守れる？SIGKILLとACK喪失を実測](https://zenn.dev/yhay81/articles/202607-otel-collector-persistent-queue) — 2026-07-28
 - [候補者の状態から逆算する、ベンチャーのエンジニア採用チャネル設計](https://zenn.dev/yhay81/articles/202601-venture-engineer-hiring-channels) — 2026-07-25
 - [Sigstore入門：どこで使われ、どう使えるのか](https://zenn.dev/yhay81/articles/202607-sigstore-guide) — 2026-07-24
-- [Google Apps Script向けSlack APIクライアントOSS「GASlacker」を作り直した](https://zenn.dev/yhay81/articles/202607-google-form-slack) — 2026-07-22
 <!-- BLOG-POST-LIST:END -->
 
 ---

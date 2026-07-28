@@ -45,6 +45,18 @@ class RepositoryContractTests(unittest.TestCase):
                 r" — \d{4}-\d{2}-\d{2}$",
             )
 
+    def test_proof_of_work_is_curated_and_distinct_from_pinned_repositories(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn("https://github.com/haya-inc/hayasend", readme)
+        self.assertIn("https://github.com/hayatepy/hayate", readme)
+        self.assertIn("https://ai-partners.info/", readme)
+        self.assertIn("https://demand.ai-partners.info/", readme)
+        self.assertNotIn("profile:repositories", readme)
+        self.assertNotIn("Live OSS telemetry", readme)
+        self.assertNotIn("DeskOne", readme)
+        self.assertNotIn("Firsthand", readme)
+
     def test_external_actions_are_pinned_to_full_commit_shas(self) -> None:
         uses_pattern = re.compile(r"^\s*uses:\s+[^@\s]+@([0-9a-f]{40})(?:\s+#.*)?$")
         workflow_paths = sorted((ROOT / ".github" / "workflows").glob("*.yml"))
