@@ -64,7 +64,7 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
 ## Latest writing
 
 <!-- BLOG-POST-LIST:START -->
-- [OpenTelemetry Collectorの永続キューはどこまで守れる？SIGKILLとACK喪失を実測](https://zenn.dev/yhay81/articles/202607-otel-collector-persistent-queue) — 2026-07-28
+- [OpenTelemetry Collectorの永続キューはどこまで守れる？強制終了とACK（成功応答）喪失を実測](https://zenn.dev/yhay81/articles/202607-otel-collector-persistent-queue) — 2026-07-28
 - [候補者の状態から逆算する、ベンチャーのエンジニア採用チャネル設計](https://zenn.dev/yhay81/articles/202601-venture-engineer-hiring-channels) — 2026-07-25
 - [Sigstore入門：どこで使われ、どう使えるのか](https://zenn.dev/yhay81/articles/202607-sigstore-guide) — 2026-07-24
 <!-- BLOG-POST-LIST:END -->
