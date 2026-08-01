@@ -13,6 +13,8 @@
   ·
   <a href="https://www.linkedin.com/in/yhay81/">LinkedIn</a>
   ·
+  <a href="https://orcid.org/0009-0008-1145-8072">ORCID</a>
+  ·
   <a href="mailto:yusuke8h@gmail.com">Email</a>
 </p>
 
