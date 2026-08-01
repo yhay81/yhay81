@@ -55,6 +55,10 @@
 
 At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and the engineering systems around it—from technical framing through rollout and team enablement.
 
+## Research
+
+My researcher identity is anchored at [ORCID 0009-0008-1145-8072](https://orcid.org/0009-0008-1145-8072), with publication discovery through [Google Scholar](https://scholar.google.com/citations?user=A3mvIIUAAAAJ) and a Japanese research profile at [researchmap](https://researchmap.jp/yhay81). My astronomy publication record includes the [first data release of the Hyper Suprime-Cam Subaru Strategic Program](https://doi.org/10.1093/pasj/psx081).
+
 ## Engineering footprint
 
 <p align="center">
