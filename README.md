@@ -47,11 +47,15 @@
 
 | Shipped system | Evidence |
 |:--|:--|
+| **[WasmHatch](https://github.com/haya-inc/wasmhatch)** | A browser-tab AI assistant at [wasmhatch.com](https://wasmhatch.com/) that needs no server, install, or account—bring your own key or Chrome's built-in model, and every Docs, Sheets, and Slides change stays visible and undoable. |
+| **[Clawsembly](https://github.com/haya-inc/clawsembly)** | An evidence-gated, capability-safe embedding SDK and an open, [self-hostable kernel](https://github.com/haya-inc/clawsembly-kernel) that run an unmodified upstream OpenClaw release entirely inside the browser. |
 | **[HayaSend](https://github.com/haya-inc/hayasend)** | An early-beta, customer-owned transactional email foundation with Resend-compatible APIs, durable delivery records, and deployable infrastructure. |
-| **[SocialName](https://github.com/yhay81/socialname)** | An installable, local-first public-identifier observability platform with a Rust engine, CLI and Tauri desktop clients, deterministic evidence, and consent-bound managed workflows. |
-| **[Firsthand](https://firsthand.work/)** | A primary-source job search service on Cloudflare Workers and D1 that preserves source provenance, freshness, and change history while indexing facts instead of copying listings. |
 | **[Hayate ecosystem](https://github.com/hayatepy/hayate)** | A web-standards-first Python framework spanning ASGI, Cloudflare Workers, and AWS Lambda, with coordinated auth, MCP, OpenAPI, admin, HTMX, and scaffolding packages. |
+| **[SocialName](https://github.com/yhay81/socialname)** | An installable, local-first public-identifier observability platform with a Rust engine, CLI and Tauri desktop clients, deterministic evidence, and consent-bound managed workflows. |
+| **CLI tools** | Seven single-purpose Rust command-line tools that keep their work bounded and inspectable: [cmdtrail](https://github.com/yhay81/cmdtrail) for command side effects, [taskattest](https://github.com/yhay81/taskattest) for verification receipts, [dmlpact](https://github.com/yhay81/dmlpact) for PostgreSQL data changes, [procherd](https://github.com/yhay81/procherd) for durable process control, [blobdive](https://github.com/yhay81/blobdive) for nested artifacts, [hopwhy](https://github.com/yhay81/hopwhy) for DNS-to-HTTP diagnostics, and [avpact](https://github.com/yhay81/avpact) for media transformations. |
+| **[Firsthand](https://firsthand.work/)** | A primary-source job search service on Cloudflare Workers and D1 that preserves source provenance, freshness, and change history while indexing facts instead of copying listings. |
 | **[AI Partners](https://ai-partners.info/) + [Demand](https://demand.ai-partners.info/)** | Publicly accessible discovery surfaces that separate AI-adoption partner research from active project demand. |
+| **[Tool Shelf](https://github.com/yhay81/tool-shelf)** | A public shelf at [tools.yhay81.com](https://tools.yhay81.com) where small, sign-up-free Japanese web tools can be compared side by side. |
 
 > **Current operating loop** · frame the problem → model the system → ship a thin slice → measure reality → harden what matters
 

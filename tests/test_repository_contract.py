@@ -48,12 +48,25 @@ class RepositoryContractTests(unittest.TestCase):
     def test_proof_of_work_is_curated_and_distinct_from_pinned_repositories(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
+        self.assertIn("https://github.com/haya-inc/wasmhatch", readme)
+        self.assertIn("https://github.com/haya-inc/clawsembly", readme)
         self.assertIn("https://github.com/haya-inc/hayasend", readme)
-        self.assertIn("https://github.com/yhay81/socialname", readme)
-        self.assertIn("https://firsthand.work/", readme)
         self.assertIn("https://github.com/hayatepy/hayate", readme)
+        self.assertIn("https://github.com/yhay81/socialname", readme)
+        for tool in (
+            "cmdtrail",
+            "taskattest",
+            "dmlpact",
+            "procherd",
+            "blobdive",
+            "hopwhy",
+            "avpact",
+        ):
+            self.assertIn(f"https://github.com/yhay81/{tool}", readme)
+        self.assertIn("https://firsthand.work/", readme)
         self.assertIn("https://ai-partners.info/", readme)
         self.assertIn("https://demand.ai-partners.info/", readme)
+        self.assertIn("https://github.com/yhay81/tool-shelf", readme)
         self.assertNotIn("profile:repositories", readme)
         self.assertNotIn("Live OSS telemetry", readme)
         self.assertNotIn("DeskOne", readme)
