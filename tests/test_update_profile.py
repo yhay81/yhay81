@@ -3,6 +3,7 @@ from __future__ import annotations
 import sys
 import unittest
 import urllib.error
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
@@ -11,6 +12,8 @@ from update_profile import (
     FOOTPRINT_BAR_WIDTH,
     GITHUB_API_VERSION,
     WRITING_END,
+    WRITING_MINIMUM_ENTRIES,
+    WRITING_RECENT_WINDOW_DAYS,
     WRITING_START,
     GitHubProfile,
     LanguageCategory,
@@ -22,7 +25,19 @@ from update_profile import (
     language_categories,
     parse_zenn_feed,
     replace_section,
+    select_writing,
 )
+
+
+def writing_entries(*published_on: str) -> tuple[WritingEntry, ...]:
+    return tuple(
+        WritingEntry(
+            title=f"Article {index}",
+            url=f"https://zenn.dev/yhay81/articles/{index}",
+            published_on=day,
+        )
+        for index, day in enumerate(published_on, start=1)
+    )
 
 
 class FakeResponse:
@@ -173,6 +188,60 @@ class ProfileUpdaterTests(unittest.TestCase):
                 ),
             ),
         )
+
+    def test_keeps_the_newest_minimum_when_the_recent_window_is_quiet(self) -> None:
+        entries = writing_entries(
+            "2026-06-30",
+            "2026-08-01",
+            "2026-05-01",
+            "2026-07-20",
+            "2026-03-01",
+            "2026-06-01",
+            "2026-04-01",
+        )
+
+        selected = select_writing(entries, today=date(2026, 8, 3))
+
+        self.assertEqual(len(selected), WRITING_MINIMUM_ENTRIES)
+        self.assertEqual(
+            [entry.published_on for entry in selected],
+            ["2026-08-01", "2026-07-20", "2026-06-30", "2026-06-01", "2026-05-01"],
+        )
+
+    def test_keeps_every_entry_inside_a_busy_recent_window(self) -> None:
+        entries = writing_entries(
+            "2026-08-02",
+            "2026-08-01",
+            "2026-07-28",
+            "2026-07-25",
+            "2026-07-20",
+            "2026-07-10",
+            "2026-07-04",  # exactly WRITING_RECENT_WINDOW_DAYS old, so still inside
+            "2026-07-03",
+            "2026-06-01",
+        )
+
+        selected = select_writing(entries, today=date(2026, 8, 3))
+
+        self.assertEqual(WRITING_RECENT_WINDOW_DAYS, 30)
+        self.assertEqual(
+            [entry.published_on for entry in selected],
+            [
+                "2026-08-02",
+                "2026-08-01",
+                "2026-07-28",
+                "2026-07-25",
+                "2026-07-20",
+                "2026-07-10",
+                "2026-07-04",
+            ],
+        )
+
+    def test_rejects_a_feed_shorter_than_the_minimum(self) -> None:
+        entries = writing_entries("2026-08-01", "2026-07-20", "2026-06-30")
+
+        with self.assertRaises(ValueError):
+            select_writing(entries, today=date(2026, 8, 3))
 
     def test_fetch_json_uses_versioned_api_and_retries_transient_failures(self) -> None:
         requests: list[urllib.request.Request] = []

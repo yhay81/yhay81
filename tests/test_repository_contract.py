@@ -37,7 +37,7 @@ class RepositoryContractTests(unittest.TestCase):
         end = lines.index("<!-- BLOG-POST-LIST:END -->")
         entries = [line for line in lines[start + 1 : end] if line]
 
-        self.assertEqual(len(entries), 3)
+        self.assertGreaterEqual(len(entries), 5)
         for entry in entries:
             self.assertRegex(
                 entry,

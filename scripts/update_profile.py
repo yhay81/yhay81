@@ -17,7 +17,7 @@ import urllib.request
 from collections import Counter
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from datetime import UTC
+from datetime import UTC, date, datetime, timedelta
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from string import Template
@@ -37,7 +37,8 @@ RETRYABLE_HTTP_STATUSES = frozenset({429, 500, 502, 503, 504})
 
 WRITING_START = "<!-- BLOG-POST-LIST:START -->"
 WRITING_END = "<!-- BLOG-POST-LIST:END -->"
-WRITING_ENTRY_LIMIT = 3
+WRITING_MINIMUM_ENTRIES = 5
+WRITING_RECENT_WINDOW_DAYS = 30
 
 FOOTPRINT_BAR_WIDTH = 536
 FOOTPRINT_LANGUAGE_LIMIT = 4
@@ -136,13 +137,8 @@ def fetch_json(
     return json.loads(payload)
 
 
-def parse_zenn_feed(
-    payload: bytes, *, limit: int = WRITING_ENTRY_LIMIT
-) -> tuple[WritingEntry, ...]:
-    """Parse and validate the newest entries from the configured Zenn RSS feed."""
-
-    if limit < 1:
-        raise ValueError("limit must be at least 1")
+def parse_zenn_feed(payload: bytes) -> tuple[WritingEntry, ...]:
+    """Parse and validate every entry in the configured Zenn RSS feed."""
 
     root = ElementTree.fromstring(payload)
     entries: list[WritingEntry] = []
@@ -174,17 +170,42 @@ def parse_zenn_feed(
                 published_on=published_at.astimezone(UTC).date().isoformat(),
             )
         )
-        if len(entries) == limit:
-            break
 
-    if len(entries) != limit:
-        raise ValueError(f"Expected at least {limit} Zenn feed entries")
+    if not entries:
+        raise ValueError("Zenn feed contained no entries")
     return tuple(entries)
+
+
+def select_writing(
+    entries: Sequence[WritingEntry],
+    *,
+    today: date,
+    minimum: int = WRITING_MINIMUM_ENTRIES,
+    window_days: int = WRITING_RECENT_WINDOW_DAYS,
+) -> tuple[WritingEntry, ...]:
+    """Keep the newest entries, widening past `minimum` to cover a busy recent window."""
+
+    if minimum < 1:
+        raise ValueError("minimum must be at least 1")
+    if window_days < 0:
+        raise ValueError("window_days must be non-negative")
+
+    newest_first = sorted(entries, key=lambda entry: entry.published_on, reverse=True)
+    cutoff = today - timedelta(days=window_days)
+    within_window = sum(
+        1 for entry in newest_first if date.fromisoformat(entry.published_on) >= cutoff
+    )
+    kept = max(minimum, within_window)
+    if len(newest_first) < kept:
+        raise ValueError(f"Expected at least {kept} Zenn feed entries")
+    return tuple(newest_first[:kept])
 
 
 def fetch_zenn_writing(
     *,
-    limit: int = WRITING_ENTRY_LIMIT,
+    today: date,
+    minimum: int = WRITING_MINIMUM_ENTRIES,
+    window_days: int = WRITING_RECENT_WINDOW_DAYS,
     urlopen: Callable[..., Any] = urllib.request.urlopen,
     sleep: Callable[[float], None] = time.sleep,
 ) -> tuple[WritingEntry, ...]:
@@ -197,7 +218,12 @@ def fetch_zenn_writing(
         urlopen=urlopen,
         sleep=sleep,
     )
-    return parse_zenn_feed(payload, limit=limit)
+    return select_writing(
+        parse_zenn_feed(payload),
+        today=today,
+        minimum=minimum,
+        window_days=window_days,
+    )
 
 
 def parse_public_repository(data: Mapping[str, object]) -> PublicRepository:
@@ -427,7 +453,7 @@ def main() -> int:
 
     try:
         profile = fetch_github_profile(os.environ.get("GITHUB_TOKEN"))
-        writing = fetch_zenn_writing()
+        writing = fetch_zenn_writing(today=datetime.now(UTC).date())
     except (
         ElementTree.ParseError,
         json.JSONDecodeError,
