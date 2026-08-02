@@ -47,6 +47,7 @@
 
 | Shipped system | Evidence |
 |:--|:--|
+| **[Tool Shelf](https://tools.yhay81.com/)** | A visual shelf of 100 open Japanese web tools for creating, finding, comparing, sharing, and organizing—each usable from its own `yhay81.com` subdomain. |
 | **[HayaSend](https://github.com/haya-inc/hayasend)** | An early-beta, customer-owned transactional email foundation with Resend-compatible APIs, durable delivery records, and deployable infrastructure. |
 | **[SocialName](https://github.com/yhay81/socialname)** | An installable, local-first public-identifier observability platform with a Rust engine, CLI and Tauri desktop clients, deterministic evidence, and consent-bound managed workflows. |
 | **[Firsthand](https://firsthand.work/)** | A primary-source job search service on Cloudflare Workers and D1 that preserves source provenance, freshness, and change history while indexing facts instead of copying listings. |
