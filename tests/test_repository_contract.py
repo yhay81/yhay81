@@ -54,6 +54,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertIn("https://github.com/hayatepy/hayate", readme)
         self.assertIn("https://github.com/yhay81/socialname", readme)
         for tool in (
+            "sqrail",
             "cmdtrail",
             "taskattest",
             "dmlpact",
