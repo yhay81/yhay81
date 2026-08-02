@@ -49,13 +49,15 @@ class RepositoryContractTests(unittest.TestCase):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
         self.assertIn("https://github.com/haya-inc/hayasend", readme)
+        self.assertIn("https://github.com/yhay81/socialname", readme)
+        self.assertIn("https://firsthand.work/", readme)
         self.assertIn("https://github.com/hayatepy/hayate", readme)
         self.assertIn("https://ai-partners.info/", readme)
         self.assertIn("https://demand.ai-partners.info/", readme)
         self.assertNotIn("profile:repositories", readme)
         self.assertNotIn("Live OSS telemetry", readme)
         self.assertNotIn("DeskOne", readme)
-        self.assertNotIn("Firsthand", readme)
+        self.assertNotIn("https://github.com/yhay81/firsthand", readme)
 
     def test_external_actions_are_pinned_to_full_commit_shas(self) -> None:
         uses_pattern = re.compile(r"^\s*uses:\s+[^@\s]+@([0-9a-f]{40})(?:\s+#.*)?$")

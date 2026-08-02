@@ -48,6 +48,8 @@
 | Shipped system | Evidence |
 |:--|:--|
 | **[HayaSend](https://github.com/haya-inc/hayasend)** | An early-beta, customer-owned transactional email foundation with Resend-compatible APIs, durable delivery records, and deployable infrastructure. |
+| **[SocialName](https://github.com/yhay81/socialname)** | An installable, local-first public-identifier observability platform with a Rust engine, CLI and Tauri desktop clients, deterministic evidence, and consent-bound managed workflows. |
+| **[Firsthand](https://firsthand.work/)** | A primary-source job search service on Cloudflare Workers and D1 that preserves source provenance, freshness, and change history while indexing facts instead of copying listings. |
 | **[Hayate ecosystem](https://github.com/hayatepy/hayate)** | A web-standards-first Python framework spanning ASGI, Cloudflare Workers, and AWS Lambda, with coordinated auth, MCP, OpenAPI, admin, HTMX, and scaffolding packages. |
 | **[AI Partners](https://ai-partners.info/) + [Demand](https://demand.ai-partners.info/)** | Publicly accessible discovery surfaces that separate AI-adoption partner research from active project demand. |
 
