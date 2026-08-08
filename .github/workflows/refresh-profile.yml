@@ -3,7 +3,7 @@ name: Refresh profile data
 on:
   schedule:
     # Daily at 09:17 JST (00:17 UTC); :17 avoids the busiest top-of-hour window.
-    - cron: "17 0 * * *"
+    - cron: "11 21 * * 4"
   workflow_dispatch:
 
 permissions: {}
@@ -17,7 +17,7 @@ jobs:
   refresh:
     name: Refresh first-party signals and latest writing
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 1
     permissions:
       contents: write # Required only for the final, bot-authenticated profile commit.
 
