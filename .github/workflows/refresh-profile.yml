@@ -2,7 +2,7 @@ name: Refresh profile data
 
 on:
   schedule:
-    # Daily at 09:17 JST (00:17 UTC); :17 avoids the busiest top-of-hour window.
+    # Weekly on Thursday at 21:11 UTC (Friday 06:11 JST); an off-hour minute avoids the busiest top-of-hour window.
     - cron: "11 21 * * 4"
   workflow_dispatch:
 

@@ -97,7 +97,7 @@ class RepositoryContractTests(unittest.TestCase):
         self.assertNotIn("3.13", validate_workflow)
         self.assertIn('target-version = "py314"', ruff_config)
 
-    def test_profile_refresh_is_daily_and_uses_only_github_owned_actions(self) -> None:
+    def test_profile_refresh_is_weekly_and_uses_only_github_owned_actions(self) -> None:
         refresh_workflow = (ROOT / ".github" / "workflows" / "refresh-profile.yml").read_text(
             encoding="utf-8"
         )
@@ -106,8 +106,8 @@ class RepositoryContractTests(unittest.TestCase):
         )
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
 
-        self.assertIn('cron: "17 0 * * *"', refresh_workflow)
-        self.assertIn("timeout-minutes: 5", refresh_workflow)
+        self.assertIn('cron: "11 21 * * 4"', refresh_workflow)
+        self.assertIn("timeout-minutes: 1", refresh_workflow)
         self.assertNotIn("[skip ci]", refresh_workflow)
         self.assertNotIn("blog-post-workflow", refresh_workflow)
         self.assertTrue(
@@ -118,8 +118,8 @@ class RepositoryContractTests(unittest.TestCase):
             )
         )
         self.assertNotIn("$generated_at", footprint_template)
-        self.assertIn("daily refresh", footprint_template)
-        self.assertIn("regenerated daily", readme)
+        self.assertIn("weekly refresh", footprint_template)
+        self.assertIn("regenerated weekly", readme)
 
     def test_footprint_template_has_the_complete_contract(self) -> None:
         template = Template(

@@ -71,7 +71,7 @@ My researcher identity is anchored at [ORCID 0009-0008-1145-8072](https://orcid.
   <img src="./github-metrics.svg" alt="Integrated GitHub engineering metrics for Yusuke Hayashi" width="100%">
 </p>
 
-<sub>First-party public GitHub signals, regenerated daily with a versioned API and no coding-time vanity metrics.</sub>
+<sub>First-party public GitHub signals, regenerated weekly with a versioned API and no coding-time vanity metrics.</sub>
 
 ## Latest writing
 
