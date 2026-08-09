@@ -13,6 +13,10 @@
   ·
   <a href="https://www.linkedin.com/in/yhay81/">LinkedIn</a>
   ·
+  <a href="https://www.kaggle.com/yhay81">Kaggle</a>
+  ·
+  <a href="https://huggingface.co/yhay81">Hugging Face</a>
+  ·
   <a href="https://orcid.org/0009-0008-1145-8072">ORCID</a>
   ·
   <a href="mailto:yusuke8h@gmail.com">Email</a>
@@ -64,6 +68,8 @@ At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and th
 ## Research
 
 My researcher identity is anchored at [ORCID 0009-0008-1145-8072](https://orcid.org/0009-0008-1145-8072), with publication discovery through [Google Scholar](https://scholar.google.com/citations?user=A3mvIIUAAAAJ) and a Japanese research profile at [researchmap](https://researchmap.jp/yhay81). My astronomy publication record includes the [first data release of the Hyper Suprime-Cam Subaru Strategic Program](https://doi.org/10.1093/pasj/psx081).
+
+My current open-data work is the **[Japan Municipal Open Data Atlas](https://www.kaggle.com/datasets/yhay81/japan-municipal-open-data-atlas-2026)** — a reproducible, provenance-tracked dataset joining official statistics for all 1,919 Japanese municipality codes, published on [Kaggle](https://www.kaggle.com/datasets/yhay81/japan-municipal-open-data-atlas-2026) and [Hugging Face](https://huggingface.co/datasets/yhay81/japan-municipal-open-data-atlas-2026), and browsable without installation in the [Municipality Explorer](https://huggingface.co/spaces/yhay81/japan-municipality-explorer).
 
 ## Engineering footprint
 
