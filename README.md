@@ -82,11 +82,11 @@ My current open-data work is the **[Japan Municipal Open Data Atlas](https://www
 ## Latest writing
 
 <!-- BLOG-POST-LIST:START -->
-- [OpenTelemetry Collectorの永続キューはどこまで守れる？強制終了とACK（成功応答）喪失を実測](https://zenn.dev/yhay81/articles/202607-otel-collector-persistent-queue) — 2026-07-28
-- [候補者の状態から逆算する、ベンチャーのエンジニア採用チャネル設計](https://zenn.dev/yhay81/articles/202601-venture-engineer-hiring-channels) — 2026-07-25
-- [Sigstore入門：どこで使われ、どう使えるのか](https://zenn.dev/yhay81/articles/202607-sigstore-guide) — 2026-07-24
-- [Google Apps Script向けSlack APIクライアントOSS「GASlacker」を作り直した](https://zenn.dev/yhay81/articles/202607-google-form-slack) — 2026-07-22
-- [ソフトウェアエンジニアリング 知識体系 2025-2026](https://zenn.dev/yhay81/books/software-engineering-2026) — 2026-03-15
+- [AIエージェントシステムの費用はどう決まる？API利用料から運用費まで](https://zenn.dev/yhay81/articles/202608-llm-api-cost-guide) — 2026-08-23
+- [AIエージェントシステム観測の基本構造：費用・遅延・品質をつなぐ](https://zenn.dev/yhay81/articles/202608-llm-api-observability-guide) — 2026-08-23
+- [LLM APIの提供経路を理解する：AWS・GCP・Azure・直API・AI Gatewayの違い](https://zenn.dev/yhay81/articles/202608-llm-api-landscape) — 2026-08-22
+- [LLM APIの費用はなぜ増える？コスト構造と最適化の基本](https://zenn.dev/yhay81/articles/202608-llm-api-cost-guide-for-beginners) — 2026-08-22
+- [LLM APIコスト最適化 実践教科書](https://zenn.dev/yhay81/books/llm-api-cost-optimization) — 2026-08-22
 <!-- BLOG-POST-LIST:END -->
 
 ---
