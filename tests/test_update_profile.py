@@ -145,7 +145,7 @@ class ProfileUpdaterTests(unittest.TestCase):
             ),
         )
 
-    def test_parses_zenn_feed_in_utc_order(self) -> None:
+    def test_parses_zenn_feed_in_feed_order(self) -> None:
         payload = b"""\
 <rss><channel>
   <item>
@@ -188,6 +188,19 @@ class ProfileUpdaterTests(unittest.TestCase):
                 ),
             ),
         )
+
+    def test_dates_writing_in_japan_time_like_zenn(self) -> None:
+        payload = b"""\
+<rss><channel><item>
+  <title>Late-night article</title>
+  <link>https://zenn.dev/yhay81/articles/late-night</link>
+  <pubDate>Wed, 22 Jul 2026 16:01:49 GMT</pubDate>
+</item></channel></rss>
+"""
+
+        (entry,) = parse_zenn_feed(payload)
+
+        self.assertEqual(entry.published_on, "2026-07-23")
 
     def test_keeps_the_newest_minimum_when_the_recent_window_is_quiet(self) -> None:
         entries = writing_entries(

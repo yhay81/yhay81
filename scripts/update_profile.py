@@ -17,7 +17,7 @@ import urllib.request
 from collections import Counter
 from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
-from datetime import UTC, date, datetime, timedelta
+from datetime import UTC, date, datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from string import Template
@@ -32,6 +32,8 @@ GITHUB_REPOSITORIES_URL = (
     "https://api.github.com/users/yhay81/repos?type=owner&sort=updated&per_page=100&page={page}"
 )
 ZENN_FEED_URL = "https://zenn.dev/yhay81/feed"
+# Zenn shows publication dates in Japan time, which has no daylight saving time.
+ZENN_TIMEZONE = timezone(timedelta(hours=9), "JST")
 USER_AGENT = "yhay81-profile-updater/4.0"
 RETRYABLE_HTTP_STATUSES = frozenset({429, 500, 502, 503, 504})
 
@@ -167,7 +169,7 @@ def parse_zenn_feed(payload: bytes) -> tuple[WritingEntry, ...]:
             WritingEntry(
                 title=title,
                 url=url,
-                published_on=published_at.astimezone(UTC).date().isoformat(),
+                published_on=published_at.astimezone(ZENN_TIMEZONE).date().isoformat(),
             )
         )
 
@@ -453,7 +455,7 @@ def main() -> int:
 
     try:
         profile = fetch_github_profile(os.environ.get("GITHUB_TOKEN"))
-        writing = fetch_zenn_writing(today=datetime.now(UTC).date())
+        writing = fetch_zenn_writing(today=datetime.now(ZENN_TIMEZONE).date())
     except (
         ElementTree.ParseError,
         json.JSONDecodeError,
