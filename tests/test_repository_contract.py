@@ -45,33 +45,33 @@ class RepositoryContractTests(unittest.TestCase):
                 r" — \d{4}-\d{2}-\d{2}$",
             )
 
-    def test_proof_of_work_is_curated_and_distinct_from_pinned_repositories(self) -> None:
+    def test_current_projects_and_extensions_link_to_their_repositories(self) -> None:
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
-
-        self.assertIn("https://github.com/haya-inc/wasmhatch", readme)
-        self.assertIn("https://github.com/haya-inc/clawsembly", readme)
-        self.assertIn("https://github.com/haya-inc/hayasend", readme)
-        self.assertIn("https://github.com/hayatepy/hayate", readme)
-        self.assertIn("https://github.com/yhay81/socialname", readme)
-        for tool in (
-            "sqrail",
-            "cmdtrail",
-            "taskattest",
-            "dmlpact",
-            "procherd",
-            "blobdive",
-            "hopwhy",
-            "avpact",
+        projects = readme.split("## Current projects\n", 1)[1].split("\n## ", 1)[0]
+        for repo in (
+            "zumen-jp/zumen",
+            "yhay81/pyropdf",
+            "yhay81/parapdf",
+            "yhay81/vastgrid",
+            "yhay81/pdf-translation-viewer",
+            "yhay81/markdown-translation-preview",
+            "yhay81/pptx-live-viewer",
         ):
-            self.assertIn(f"https://github.com/yhay81/{tool}", readme)
-        self.assertIn("https://firsthand.work/", readme)
-        self.assertIn("https://ai-partners.info/", readme)
-        self.assertIn("https://demand.ai-partners.info/", readme)
-        self.assertIn("https://github.com/yhay81/tool-shelf", readme)
-        self.assertNotIn("profile:repositories", readme)
-        self.assertNotIn("Live OSS telemetry", readme)
-        self.assertNotIn("DeskOne", readme)
-        self.assertNotIn("https://github.com/yhay81/firsthand", readme)
+            with self.subTest(repo=repo):
+                self.assertEqual(projects.count(f"](https://github.com/{repo})"), 1)
+
+    def test_readme_does_not_repeat_the_curated_profile_pins(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8").casefold()
+        for repo in (
+            "yhay81/ja-translation-todo",
+            "yhay81/gaslacker",
+            "yhay81/yomiage-kun",
+            "haya-inc/wiki-kit-template",
+            "hayatepy/hayate",
+            "yhay81/pythonic-peano-arithmetic",
+        ):
+            with self.subTest(repo=repo):
+                self.assertNotIn(f"github.com/{repo}", readme)
 
     def test_external_actions_are_pinned_to_full_commit_shas(self) -> None:
         uses_pattern = re.compile(r"^\s*uses:\s+[^@\s]+@([0-9a-f]{40})(?:\s+#.*)?$")

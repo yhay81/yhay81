@@ -22,54 +22,34 @@
   <a href="mailto:yusuke8h@gmail.com">Email</a>
 </p>
 
-<p align="center">
-  <strong>Software engineer × product builder, based in Tokyo.</strong><br>
-  <sub>I turn ambiguous problems into production systems—architecture, implementation, evaluation, delivery, and operation.</sub>
-</p>
+I'm a software engineer in Tokyo. At [Haya Inc.](https://haya-inc.co.jp/), I help teams put AI into production. My recent open-source work focuses on tools for reading, editing, and translating the files people already use.
 
-<table>
-  <tr>
-    <td width="33%">
-      <strong>01 / AI SYSTEMS</strong><br><br>
-      LLM integration, RAG pipelines, evaluation, and human-in-the-loop workflows designed for production constraints.
-      <br><br><code>LLM</code> <code>RAG</code> <code>EVALS</code>
-    </td>
-    <td width="33%">
-      <strong>02 / SYSTEMS &amp; TOOLING</strong><br><br>
-      Small, dependable developer tools with clear APIs, native performance, and low operational cost.
-      <br><br><code>PYTHON</code> <code>RUST</code> <code>APIs</code>
-    </td>
-    <td width="33%">
-      <strong>03 / VERIFICATION &amp; SECURITY</strong><br><br>
-      Reproducible baselines, bounded tools, evidence-backed validation, and responsible disclosure.
-      <br><br><code>REPRO</code> <code>SECURITY</code> <code>EVIDENCE</code>
-    </td>
-  </tr>
-</table>
+## Current projects
 
-## Proof of work
+| Project | What you can do with it |
+| --- | --- |
+| **[Zumen](https://github.com/zumen-jp/zumen)** | Read and write Japanese CAD drawings and BIM models, including JWW, SXF, and IFC. Python, JavaScript, and .NET applications share the same Rust core. [Supported formats](https://zumen.dev/formats/) |
+| **[pyropdf](https://github.com/yhay81/pyropdf)** | Extract text and tables, render a page as an image, or edit a PDF from Python. Group edits in a transaction so they can be undone together. [Documentation](https://pyropdf.haya.works/) |
+| **[ParaPDF](https://github.com/yhay81/parapdf)** | Embed a PDF reader in a React app. It renders pages near the viewport as you scroll and supports text selection, search, and annotations. [Live demo](https://parapdf.yhay81.com/demo/) |
+| **[VastGrid](https://github.com/yhay81/vastgrid)** | Open a large CSV or Parquet file as a spreadsheet and edit individual cells. Rows load as you scroll. The same grid runs in the browser, VS Code, and Jupyter. [Open a file](https://vastgrid.yhay81.com/open/) |
 
-| Shipped system | Evidence |
-|:--|:--|
-| **[WasmHatch](https://github.com/haya-inc/wasmhatch)** | A browser-tab AI assistant at [wasmhatch.com](https://wasmhatch.com/) that needs no server, install, or account—bring your own key or Chrome's built-in model, and every Docs, Sheets, and Slides change stays visible and undoable. |
-| **[Clawsembly](https://github.com/haya-inc/clawsembly)** | An evidence-gated, capability-safe embedding SDK and an open, [self-hostable kernel](https://github.com/haya-inc/clawsembly-kernel) that run an unmodified upstream OpenClaw release entirely inside the browser. |
-| **[HayaSend](https://github.com/haya-inc/hayasend)** | An early-beta, customer-owned transactional email foundation with Resend-compatible APIs, durable delivery records, and deployable infrastructure. |
-| **[Hayate ecosystem](https://github.com/hayatepy/hayate)** | A web-standards-first Python framework spanning ASGI, Cloudflare Workers, and AWS Lambda, with coordinated auth, MCP, OpenAPI, admin, HTMX, and scaffolding packages. |
-| **[SocialName](https://github.com/yhay81/socialname)** | An installable, local-first public-identifier observability platform with a Rust engine, CLI and Tauri desktop clients, deterministic evidence, and consent-bound managed workflows. |
-| **CLI tools** | Eight bounded, single-purpose CLIs: [sqrail](https://github.com/yhay81/sqrail) (SQL over local files), [cmdtrail](https://github.com/yhay81/cmdtrail) (command side effects), [taskattest](https://github.com/yhay81/taskattest) (verification receipts), [dmlpact](https://github.com/yhay81/dmlpact) (PostgreSQL changes), [procherd](https://github.com/yhay81/procherd) (process control), [blobdive](https://github.com/yhay81/blobdive) (nested artifacts), [hopwhy](https://github.com/yhay81/hopwhy) (DNS-to-HTTP diagnostics), [avpact](https://github.com/yhay81/avpact) (media transforms). |
-| **[Firsthand](https://firsthand.work/)** | A primary-source job search service on Cloudflare Workers and D1 that preserves source provenance, freshness, and change history while indexing facts instead of copying listings. |
-| **[AI Partners](https://ai-partners.info/) + [Demand](https://demand.ai-partners.info/)** | Publicly accessible discovery surfaces that separate AI-adoption partner research from active project demand. |
-| **[Tool Shelf](https://github.com/yhay81/tool-shelf)** | A public shelf at [tools.yhay81.com](https://tools.yhay81.com) where small, sign-up-free Japanese web tools can be compared side by side. |
+### Document tools for VS Code
 
-> **Current operating loop** · frame the problem → model the system → ship a thin slice → measure reality → harden what matters
+- **[PDF Translation Viewer](https://github.com/yhay81/pdf-translation-viewer)** shows the original page beside its translation, keeping figures, tables, and equations in place.
+- **[Markdown Translation Preview](https://github.com/yhay81/markdown-translation-preview)** aligns each translated paragraph with its source and preserves code blocks and link targets.
+- **[PPTX Live Viewer](https://github.com/yhay81/pptx-live-viewer)** keeps the current slide in view when a script regenerates a PowerPoint file, so you can inspect changes as you work.
 
-At [Haya Inc.](https://haya-inc.co.jp/), I work on production AI adoption and the engineering systems around it—from technical framing through rollout and team enablement.
+## Other selected work
 
-## Research
+- **[WasmHatch](https://github.com/haya-inc/wasmhatch)** is a browser-based AI assistant that analyzes spreadsheets and creates editable Google Docs, Sheets, and Slides. [Try it](https://wasmhatch.com/)
+- **[HayaSend](https://github.com/haya-inc/hayasend)** provides a Resend-compatible email API that delivers through Amazon SES in the customer's own AWS account.
+- **[Firsthand](https://firsthand.work/)** indexes jobs from employers' own sites and keeps a history of what changed in each listing.
 
-My researcher identity is anchored at [ORCID 0009-0008-1145-8072](https://orcid.org/0009-0008-1145-8072), with publication discovery through [Google Scholar](https://scholar.google.com/citations?user=A3mvIIUAAAAJ) and a Japanese research profile at [researchmap](https://researchmap.jp/yhay81). My astronomy publication record includes the [first data release of the Hyper Suprime-Cam Subaru Strategic Program](https://doi.org/10.1093/pasj/psx081).
+## Research and open data
 
-My current open-data work is the **[Japan Municipal Open Data Atlas](https://www.kaggle.com/datasets/yhay81/japan-municipal-open-data-atlas-2026)** — a reproducible, provenance-tracked dataset joining official statistics for all 1,919 Japanese municipality codes, published on [Kaggle](https://www.kaggle.com/datasets/yhay81/japan-municipal-open-data-atlas-2026) and [Hugging Face](https://huggingface.co/datasets/yhay81/japan-municipal-open-data-atlas-2026), and browsable without installation in the [Municipality Explorer](https://huggingface.co/spaces/yhay81/japan-municipality-explorer).
+- **[ARC-AGI-2 Solution Atlas](https://github.com/yhay81/arc-agi-2-solution-atlas)** pairs each of the 1,120 public tasks with a runnable Python solution and an English explanation. A verifier checks the solutions against all 4,834 published input–output pairs.
+- **Japan Municipal Open Data Atlas** brings official statistics together across 1,919 Japanese statistical area codes. Explore the data in the [Municipality Explorer](https://huggingface.co/spaces/yhay81/japan-municipality-explorer) or download it from [Kaggle](https://www.kaggle.com/datasets/yhay81/japan-municipal-open-data-atlas-2026) or [Hugging Face](https://huggingface.co/datasets/yhay81/japan-municipal-open-data-atlas-2026).
+- In astronomy, I co-authored the [first data release of the Hyper Suprime-Cam Subaru Strategic Program](https://doi.org/10.1093/pasj/psx081). My publication record is on [ORCID](https://orcid.org/0009-0008-1145-8072), [Google Scholar](https://scholar.google.com/citations?user=A3mvIIUAAAAJ), and [researchmap](https://researchmap.jp/yhay81).
 
 ## Engineering footprint
 
