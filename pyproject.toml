@@ -19,3 +19,7 @@ select = [
 quote-style = "double"
 indent-style = "space"
 line-ending = "lf"
+
+[dependency-groups]
+# Human-edited pins; requirements-dev.txt is the hash lock generated from them.
+dev = ["ruff==0.17.4", "ty==0.0.101", "zizmor==1.32.0"]

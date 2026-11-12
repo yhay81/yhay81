@@ -34,25 +34,24 @@ jobs:
           python -m compileall -q scripts tests
           python -m unittest discover -s tests -v
 
+      - name: Install hash-locked Ruff, ty, and zizmor
+        run: |
+          wheels=$(mktemp -d)
+          # Allow these exact releases early. Both are seven days old by November 18 at 13:54 UTC.
+          if [[ $(date -u +%Y-%m-%dT%H:%MZ) < 2026-11-18T13:54Z ]]; then
+            python -m pip download --disable-pip-version-check --no-deps --only-binary :all: \
+              --dest "$wheels" ruff==0.17.4 ty==0.0.101
+          fi
+          python -m pip install --disable-pip-version-check --no-deps --only-binary :all: \
+            --find-links "$wheels" --require-hashes --uploaded-prior-to P7D -r requirements-dev.txt
+
       - name: Lint with Ruff
-        uses: astral-sh/ruff-action@278981a28ce3188b1e39527901f38254bf3aac89 # v4.1.0
-        with:
-          args: check scripts tests
-          version-file: requirements-dev.txt
+        run: ruff check --output-format=github scripts tests
 
       - name: Verify Ruff formatting
-        uses: astral-sh/ruff-action@278981a28ce3188b1e39527901f38254bf3aac89 # v4.1.0
-        with:
-          args: format --check scripts tests
-          version-file: requirements-dev.txt
-
-      - name: Set up uv for the Actions audit
-        uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
-        with:
-          version: "0.11.32"
-          enable-cache: true
+        run: ruff format --check --output-format=github scripts tests
 
       - name: Audit GitHub Actions
         env:
           GH_TOKEN: ${{ github.token }}
-        run: uvx --from zizmor==1.28.0 zizmor --persona pedantic --format github .
+        run: zizmor --persona pedantic --format github .
