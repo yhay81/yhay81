@@ -32,6 +32,7 @@ I'm a software engineer in Tokyo. At [Haya Inc.](https://haya-inc.co.jp/), I hel
 | **[pyropdf](https://github.com/yhay81/pyropdf)** | Extract text and tables, render a page as an image, or edit a PDF from Python. Group edits in a transaction so they can be undone together. [Documentation](https://pyropdf.haya.works/) |
 | **[ParaPDF](https://github.com/yhay81/parapdf)** | Embed a PDF reader in a React app. It renders pages near the viewport as you scroll and supports text selection, search, and annotations. [Live demo](https://parapdf.yhay81.com/demo/) |
 | **[VastGrid](https://github.com/yhay81/vastgrid)** | Open a large CSV or Parquet file as a spreadsheet and edit individual cells. Rows load as you scroll. The same grid runs in the browser, VS Code, and Jupyter. [Open a file](https://vastgrid.yhay81.com/open/) |
+| **[sqrail](https://github.com/yhay81/sqrail)** | Query local CSV, TSV, JSON, and Parquet files from the command line. Coding agents can join the files you specify with read-only SQL and get one JSON object per row. [Quick start](https://sqrail.yhay81.com/docs/) |
 
 ### Document tools for VS Code
 

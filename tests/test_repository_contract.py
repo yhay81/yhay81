@@ -53,6 +53,7 @@ class RepositoryContractTests(unittest.TestCase):
             "yhay81/pyropdf",
             "yhay81/parapdf",
             "yhay81/vastgrid",
+            "yhay81/sqrail",
             "yhay81/pdf-translation-viewer",
             "yhay81/markdown-translation-preview",
             "yhay81/pptx-live-viewer",
