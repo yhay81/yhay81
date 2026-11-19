@@ -63,11 +63,11 @@ I'm a software engineer in Tokyo. At [Haya Inc.](https://haya-inc.co.jp/), I hel
 ## Latest writing
 
 <!-- BLOG-POST-LIST:START -->
+- [巨大なPDFをReactで快適に扱うためのビューア、ParaPDFを作っています](https://zenn.dev/yhay81/articles/202611-parapdf) — 2026-11-16
+- [エージェントはSQLを書ける。足りないのは実行の境界 — 読み取り専用SQL CLI「sqrail」を作った](https://zenn.dev/yhay81/articles/202608-sqrail) — 2026-11-15
 - [AIエージェントシステムの費用はどう決まる？API利用料から運用費まで](https://zenn.dev/yhay81/articles/202608-llm-api-cost-guide) — 2026-08-23
 - [AIエージェントシステム観測の基本構造：費用・遅延・品質をつなぐ](https://zenn.dev/yhay81/articles/202608-llm-api-observability-guide) — 2026-08-23
 - [LLM APIの提供経路を理解する：AWS・GCP・Azure・直API・AI Gatewayの違い](https://zenn.dev/yhay81/articles/202608-llm-api-landscape) — 2026-08-22
-- [LLM APIの費用はなぜ増える？コスト構造と最適化の基本](https://zenn.dev/yhay81/articles/202608-llm-api-cost-guide-for-beginners) — 2026-08-22
-- [LLM APIコスト最適化 実践教科書](https://zenn.dev/yhay81/books/llm-api-cost-optimization) — 2026-08-22
 <!-- BLOG-POST-LIST:END -->
 
 ---
